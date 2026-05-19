@@ -16,7 +16,7 @@ jobs:
         uses: docker/setup-docker-action@v5  
 
       - name: Docker user configure
-        run: usermod -aG docker $USER && newgrp docker
+        run: sudo usermod -aG docker $USER && sudo newgrp docker
 
       # - name: Set up Docker Compose
       #   uses: docker/setup-compose-action@v2  
