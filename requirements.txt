@@ -1,3 +1,4 @@
 flask==3.1.3
 Werkzeug==3.1.3
 Ruff
+flake8==7.3.0
