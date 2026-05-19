@@ -21,3 +21,12 @@ jobs:
         uses: actions/setup-python@v6
         with:
          python-version: ${{matrix.python-version}}
+
+      - name: Install Requirements
+        run: pip install --no-cache-dir -r requirements.txt
+
+      - name: Scan code for Syntax 
+        run: flake8 app.py
+
+      - name: Run Ruff check
+        run: ruff check --output-format=github .
