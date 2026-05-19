@@ -1,0 +1,23 @@
+---
+name: Code-Scan
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  linter:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        python-version: ["3.9","3.10","3.11","3.12","3.13","3.14"]
+
+    steps:
+      - name: Code Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Python ${{matrix.python-version}}
+        uses: actions/setup-python@v6
+        with:
+         python-version: ${{matrix.python-version}}
